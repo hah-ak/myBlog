@@ -1,0 +1,75 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    
+<div id="colorlib-main">
+    <section class="ftco-section ftco-no-pt ftco-no-pb">
+    <div class="container">
+        <div class="row d-flex">
+            <div class="col-xl-8 py-5 px-md-5">
+                <div class="row pt-md-4">
+                    
+                    {% if results %}
+                        {% for result in results %}
+                        <div class="col-md-12">
+                            <div class="blog-entry ftco-animate d-md-flex">
+                                <a href="#" class="img img-2" style="background-image: url(static/blog/images/image_1.jpg);"></a>
+                                <div class="text text-2 pl-md-4">
+                                    <h3 class="mb-2"><a href='{{ result.get_absolute_url }}'>{{result.title}}</a></h3>
+                                    <div class="meta-wrap">
+                                        <p class="meta">
+                                            <span><i class="icon-calendar mr-2"></i>{{result.created_date}}</span>
+                                            <span><a href="{{ result.get_absolute_url }}"><i class="icon-folder-o mr-2"></i>{{result.site}}</a></span>
+                                            <span><i class="icon-comment2 mr-2"></i>5 Comment</span>
+                                        </p>
+                                    </div>
+                                    <p class="mb-4">{{result.problem_content|truncatewords:80}}</p>
+                                    <p><a href="#" class="btn-custom">Read More <span class="ion-ios-arrow-forward"></span></a></p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="col-md-12">
+                            <div class="blog-entry ftco-animate d-md-flex">
+                                <div class ="text text-2 pl-md-4">
+                                    <h3 class="mb-2">Cannot found"{{notfound}}"</h3>    
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                        
+                </div><!-- END-->
+                <!-- <div class="row">
+              <div class="col">
+                <div class="block-27">
+                    <ul>
+                        {% if page_obj.has_previous %}
+                            <a href="?page=1">&laquo; first</a>
+                            <li><a href="?page={{ page_obj.previous_page_number }}">&lt;</a></li>
+                        {% endif %}
+                        
+                        
+                        {% for page in page_range %}
+                            
+                            {% if page == page_obj.number %}
+                            <li class="current active"><span>{{page}}</span></li>
+                            {% else %}
+                            <li><a href="?page={{ page }}">{{page}}</a></li>
+                            {% endif %}
+                            
+                        {% endfor %}
+                
+                        {% if page_obj.has_next %}
+                            <li><a href="?page={{ page_obj.next_page_number }}">&gt;</a></li>
+                            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                        {% endif %}
+                        
+                        </ul>
+                </div>
+              </div>
+            </div> -->
+            </div>
+        
+{% endblock content %}
+    

@@ -1,0 +1,8 @@
+*.pyc
+*~
+__pycache__
+private_Django
+/static
+.DS_Store
+mysql.cnf
+.vscode
