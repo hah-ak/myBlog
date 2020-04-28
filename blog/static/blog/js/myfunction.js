@@ -1,20 +1,16 @@
-(function ($) {
-    $('.main-nav-li > li').on('click', function () {
-        var now = $(this).text();
-        var check = 0;
-        if (text == 'HOME') {
-            $('.main-nav-li + li').addClass('colorlib-active');
-            check == 0;
-        } else {
-            $(this).addClass("colorlib-active");
-            check == 1;
+// 적용이 안되는 경우 캐시를 삭제하고 해볼것
+// $(function () {
+//     var aside_height = $('#colorlib-aside').height();
+//     var main_menu_height = $('#colorlib-main-menu').height();
+//     var footer_height = $('.colorlib-footer').height();
+//     var func = function() {
 
-        }
-
-
-    });
-})(jQuery);
-
-
-
-    
+//         if (aside_height < main_menu_height+footer_height){
+//             $('.colorlib-footer').hide();
+//         } else {
+//             $('.colorlib-footer').show();
+//         }
+//     }
+//     func();  
+// });
+ 
