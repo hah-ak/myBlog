@@ -29,17 +29,17 @@
     <link rel="stylesheet" href="{% static 'blog/css/icomoon.css' %}">
     <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
     
+
+    
     <!-- highlight js -->
     <link rel="stylesheet" href="{% static 'blog/styles/railscasts.css' %}">
-    <script src="{% static 'blog/highlight.pack.js' %}"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
 
   </head>
   <body>
 	<div id="colorlib-page">
-		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
+        <a class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
 		<aside id="colorlib-aside" role="complementary" class="js-fullheight">
-			<nav id="colorlib-main-menu" role="navigation">
+			<div id="colorlib-main-menu" role="navigation">
 				<ul>
                     <li class="{% if request.path == '/'%} colorlib-active {% endif %}"><a href="{% url 'main' %}">Home</a></li>
                     <li class="{% if 'fashion' in request.path %} colorlib-active {% endif %}"><a href="{% url 'fashion' %}">Fashion</a></li>
@@ -48,40 +48,47 @@
                     <li class="{% if 'about' in request.path %} colorlib-active {% endif %}"><a href="{% url 'about' %}">About</a></li>
                     <li class="{% if 'contact' in request.path %} colorlib-active {% endif %}"><a href="{% url 'contact' %}">Contact</a></li>
 				</ul>
-			</nav>
+			</div>
 
 			<div class="colorlib-footer">
 				<h1 id="colorlib-logo" class="mb-4"><a href="{% url 'main' %}" style="background-image: url('/static/blog/images/bg_1.jpg');">Andrea <span>Moore</span></a></h1>
 				<div class="mb-4">
-					<h3>Subscribe for newsletter</h3>
-					<form action="#" class="colorlib-subscribe-form">
-            <div class="form-group d-flex">
-            	<div class="icon"><span class="icon-paper-plane"></span></div>
-              <input type="text" class="form-control" placeholder="Enter Email Address">
-            </div>
-          </form>
+					<h3>Search</h3>
+					<!-- <form action="#" class="colorlib-subscribe-form">
+                            <div class="form-group d-flex">
+                                <div class="icon"><span class="icon-paper-plane"></span></div>
+                                <input type="text" class="form-control" placeholder="Enter Email Address">
+                            </div>
+                        </form> -->
+                    <form action="{% url 'search' %}" class="colorlib-subscribe-form" method="GET">
+                        <div class="form-group">
+                        <span class="icon icon-search"></span>
+                        <input type="text" class="form-control" placeholder="Type a keyword and hit enter" name ="search">
+                        </div>
+                    </form>
 				</div>
 				<p class="pfooter"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 	  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
 	  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
 			</div>
-		</aside> <!-- END COLORLIB-ASIDE -->
+        </aside> <!-- END COLORLIB-ASIDE -->
+    
 		
         {% block content %}
             
         {% endblock content%}
 
         
-        {% if request.path == '/' or 'SSEA' or 'programmers' in request.path %}
-                    <div class="col-xl-4 sidebar ftco-animate bg-light pt-5">
-                <div class="sidebar-box pt-md-4">
+        {% if request.path == '/' or 'SSEA' in request.path or 'programmers' in request.path %}
+            <div class="col-xl-4 sidebar ftco-animate bg-light pt-5">
+                <!-- <div class="sidebar-box pt-md-4">
                 <form action="{% url 'search' %}" class="search-form" method="GET">
                     <div class="form-group">
                     <span class="icon icon-search"></span>
                     <input type="text" class="form-control" placeholder="Type a keyword and hit enter" name ="search">
                     </div>
                 </form>
-                </div>
+                </div> -->
                 <div class="sidebar-box ftco-animate">
                     <h3 class="sidebar-heading">Categories</h3>
                 <ul class="categories">
@@ -89,7 +96,7 @@
                     <li><a href="#">Technology <span>(8)</span></a></li>
                     <li><a href="#">Travel <span>(2)</span></a></li>
                     <li><a href="#">Food <span>(2)</span></a></li>
-                    <li><a href="#">Photography <span>(7)</span></a></li>
+                    <li><a href="#">Photography<span>(7)</span></a></li>
                 </ul>
                 </div>
 
@@ -174,12 +181,13 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut.</p>
                 </div>
             </div><!-- END COL -->
+            {% endif %}
                 </div>
             </div>
         </section>
         </div><!-- END COLORLIB-MAIN -->
     </div><!-- END COLORLIB-PAGE -->
-        {% endif %}
+        
             
             
   <!-- loader -->
@@ -201,6 +209,9 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="{% static 'blog/js/google-map.js' %}"></script>
   <script src="{% static 'blog/js/main.js' %}"></script>
+  <!-- highlight.js -->
+  <script src="{% static 'blog/highlight.pack.js' %}"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
 
   <script src="{% static 'blog/js/myfunction.js' %}"></script>
   </body>

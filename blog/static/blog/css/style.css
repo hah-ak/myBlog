@@ -8141,7 +8141,7 @@ body {
   color: #666666; }
   body.offcanvas {
     overflow-x: hidden; }
-    body.offcanvas #colorlib-aside {
+    body.offcanvas #colorlib-aside, body.offcanvas .sidebar {
       -moz-transform: translateX(0);
       -webkit-transform: translateX(0);
       -ms-transform: translateX(0);
