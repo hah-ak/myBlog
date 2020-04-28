@@ -18,12 +18,29 @@
 
 
 	var fullHeight = function() {
-
+		
 		$('.js-fullheight').css('height', $(window).height());
 		$(window).resize(function(){
 			$('.js-fullheight').css('height', $(window).height());
 		});
-
+		// aside 확대시 화면 변화 추가
+		$(function () {
+			    var aside_height = $('#colorlib-aside').height();
+			    var main_menu_height = $('#colorlib-main-menu').height();
+			    var footer_height = $('.colorlib-footer').height();
+			    var func = function() {
+			
+			        if (aside_height < main_menu_height+footer_height){
+						$('.colorlib-footer').css('position', 'relative');
+						$('#colorlib-aside').css('overflow-y', 'auto');
+			        } else {
+						$('.colorlib-footer').css('position', 'absolute');
+						$('#colorlib-aside').css('overflow-y', 'hidden');
+			        }
+				}
+				func();
+				// end
+			});
 	};
 	fullHeight();
 
