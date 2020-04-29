@@ -8250,6 +8250,24 @@ h1, h2, h3, h4, h5,
       list-style: none;
       font-size: 18px;
       font-weight: 500; }
+      /* 매뉴바 리스트 속 리스트 추가 */
+      #colorlib-aside #colorlib-main-menu ul li ul{
+        margin : 0;
+        padding : 0;
+        display: none;
+      }
+      #colorlib-aside #colorlib-main-menu ul li:hover ul{
+        display: block;
+      }
+        #colorlib-aside #colorlib-main-menu ul li:hover ul li{
+          margin : 0px 5px 2px 0;
+          padding: 0;
+          font-size : 14px;
+          font-weight: 300;
+          position: relative;
+          left: 10px;
+        }
+      /* end */
       #colorlib-aside #colorlib-main-menu ul li a {
         color: rgba(0, 0, 0, 0.7);
         text-decoration: none;
@@ -8290,11 +8308,23 @@ h1, h2, h3, h4, h5,
             -ms-transform: scaleX(1);
             -o-transform: scaleX(1);
             transform: scaleX(1); }
-      #colorlib-aside #colorlib-main-menu ul li.colorlib-active {
+      /*하위 ul li 부분 이펙트 추가*/
+      #colorlib-aside > #colorlib-main-menu > ul > li.colorlib-active {
         font-weight: 600; }
-        #colorlib-aside #colorlib-main-menu ul li.colorlib-active a {
+      #colorlib-aside > #colorlib-main-menu > ul > li.colorlib-active > ul > li.colorlib-active{
+        font-weight: 600; }
+        #colorlib-aside > #colorlib-main-menu > ul > li.colorlib-active > a {
           color: #1eafed; }
-          #colorlib-aside #colorlib-main-menu ul li.colorlib-active a:after {
+        #colorlib-aside > #colorlib-main-menu > ul > li.colorlib-active > ul > li.colorlib-active > a{
+          color: #1eafed; }
+          #colorlib-aside > #colorlib-main-menu > ul > li.colorlib-active > a:after {
+            visibility: visible;
+            -webkit-transform: scaleX(1);
+            -moz-transform: scaleX(1);
+            -ms-transform: scaleX(1);
+            -o-transform: scaleX(1);
+            transform: scaleX(1); }
+          #colorlib-aside > #colorlib-main-menu > ul > li.colorlib-active > ul > li.colorlib-active > a:after {
             visibility: visible;
             -webkit-transform: scaleX(1);
             -moz-transform: scaleX(1);
@@ -8302,11 +8332,11 @@ h1, h2, h3, h4, h5,
             -o-transform: scaleX(1);
             transform: scaleX(1); }
   #colorlib-aside .colorlib-footer {
-    position: absolute;
+    position: relative;/*absolute > relative main-menu크기에 따라 변하게 만듦*/
     bottom: 20px;
     left: 0;
     right: 0;
-    padding: 0 20px;
+    padding: 0 0;/*padding 20 > 0으로 변경*/
     font-size: 17px;
     font-weight: 400;
     color: rgba(0, 0, 0, 0.6); }

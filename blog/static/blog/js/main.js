@@ -31,10 +31,9 @@
 			    var func = function() {
 			
 			        if (aside_height < main_menu_height+footer_height){
-						$('.colorlib-footer').css('position', 'relative');
-						$('#colorlib-aside').css('overflow-y', 'auto');
+						// $('#colorlib-aside').css('overflow-y', 'auto');
+						
 			        } else {
-						$('.colorlib-footer').css('position', 'absolute');
 						$('#colorlib-aside').css('overflow-y', 'hidden');
 			        }
 				}
