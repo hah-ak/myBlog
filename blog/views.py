@@ -42,7 +42,7 @@ def main(request):
     page_range = paginator.page_range[start_index:end_index]
     
     context = {'Algorithms':Algorithms,'page_range':page_range,'page_obj' : page_obj}
-    return render(request,'blog/main.html',context)
+    return render(request,'blog/index.html',context)
 
 class CodeDetailView(generic.DetailView):
     model = Algorithm
